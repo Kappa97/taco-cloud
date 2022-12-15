@@ -31,19 +31,24 @@ public class DesignTacoController {
     private final IngredientRepository ingredientRepo;
     private TacoRepository designRepo;
 
-    @ModelAttribute(name = "order")
-    public Order order() {
-        return new Order();
+    @Autowired
+    public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository designRepo) {
+        this.ingredientRepo = ingredientRepo;
+        this.designRepo = designRepo;
     }
 
-    @ModelAttribute(name = "taco")
-    public Taco taco() {
-        return new Taco();
-    }
+//    @ModelAttribute(name = "order")
+//    public Order order() {
+//        return new Order();
+//    }
+//
+//    @ModelAttribute(name = "taco")
+//    public Taco taco() {
+//        return new Taco();
+//    }
 
     @PostMapping
-    public String processDesign(
-            @Valid Taco design, Errors errors,
+    public String processDesign(@Valid Taco design, Errors errors,
             @ModelAttribute Order order) {
         if (errors.hasErrors()) {
             return "design";
@@ -54,15 +59,8 @@ public class DesignTacoController {
     }
 
 
-
-    @Autowired
-    public DesignTacoController(IngredientRepository ingredientRepo) {
-        this.ingredientRepo = ingredientRepo;
-        //this.designRepo = designRepo;
-    }
-
     @GetMapping
-    public String showDesignForm(Model model) {
+    public String showDesignFormMyMethod(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
         ingredientRepo.findAll().forEach(i -> ingredients.add(i));
         Ingredient.Type[] types = Ingredient.Type.values();
@@ -103,15 +101,4 @@ public class DesignTacoController {
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
     }
-
-//    @PostMapping
-//    public String processDesign(@Valid Taco design, Errors errors) {
-//        if (errors.hasErrors()) {
-//            return "design";
-//        }
-//        // Save the taco design...
-//        // We'll do this in chapter 3
-//        log.info("Processing design: " + design);
-//        return "redirect:/orders/current";
-//    }
 }
