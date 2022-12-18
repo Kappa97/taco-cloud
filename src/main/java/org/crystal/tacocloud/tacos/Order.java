@@ -6,13 +6,14 @@ import org.hibernate.validator.constraints.CreditCardNumber;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Data
 public class Order {
 
     private Long id;
-    private Date placedAt;
 
     @NotBlank(message="Name is required")
     private String name;
@@ -38,10 +39,14 @@ public class Order {
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;
 
-    private Taco tacos;
+    private Date placedAt;
+
+    private List<Taco> tacos;
 
     public void addDesign(Taco taco){
-
-        System.out.println("addDesign method");
+        if (tacos == null) {
+            tacos = new ArrayList<Taco>();
+        }
+        tacos.add(taco);
     }
 }
