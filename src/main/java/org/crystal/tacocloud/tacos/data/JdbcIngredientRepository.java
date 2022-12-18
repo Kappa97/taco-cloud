@@ -39,6 +39,13 @@ public class JdbcIngredientRepository implements IngredientRepository {
         return ingredient;
     }
 
+    @Override
+    public Ingredient findById(String id) {
+        return jdbc.queryForObject(
+                "select id, name, type from Ingredient where id=?",
+                this::mapRowToIngredient, id);
+    }
+
     private Ingredient mapRowToIngredient(ResultSet rs, int rowNum)
             throws SQLException {
         return new Ingredient(
@@ -46,4 +53,6 @@ public class JdbcIngredientRepository implements IngredientRepository {
                 rs.getString("name"),
                 Ingredient.Type.valueOf(rs.getString("type")));
     }
+
+
 }
