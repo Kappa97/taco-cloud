@@ -1,10 +1,7 @@
 package org.crystal.tacocloud.tacos.data;
 
 import org.crystal.tacocloud.tacos.Ingredient;
+import org.springframework.data.repository.CrudRepository;
 
-public interface IngredientRepository {
-    Iterable<Ingredient> findAll();
-    Ingredient findOne(String id);
-    Ingredient save(Ingredient ingredient);
-    Ingredient findById(String id);
+public interface IngredientRepository extends CrudRepository<Ingredient, String>{
 }
