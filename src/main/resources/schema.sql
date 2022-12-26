@@ -18,10 +18,6 @@ create table if not exists Taco_Ingredients
     CONSTRAINT FK_Ingredients FOREIGN KEY (ingredient) REFERENCES Ingredient (id)
 );
 
--- alter table Taco_Ingredients
---     add CONSTRAINT FK_Taco_Ingredients foreign key (taco) references Taco(id);
--- alter table Taco_Ingredients
---     add foreign key (ingredient) references Ingredient(id);
 create table if not exists Taco_Order
 (
     id           identity PRIMARY KEY,
@@ -40,9 +36,17 @@ create table if not exists Taco_Order_Tacos
     tacoOrder bigint not null,
     taco      bigint not null,
     CONSTRAINT FK_tacoOrder FOREIGN KEY (tacoOrder) REFERENCES Taco_Order (id),
-    CONSTRAINT FK_taco FOREIGN KEY (taco) REFERENCES Taco (id)
+    CONSTRAINT FK_taco_2 FOREIGN KEY (taco) REFERENCES Taco (id)
 );
--- alter table Taco_Order_Tacos
---     add foreign key (tacoOrder) references Taco_Order(id);
--- alter table Taco_Order_Tacos
---     add foreign key (taco) references Taco(id);
+-- create table if not exists User
+-- (
+--     id          identity PRIMARY KEY,
+--     username    varchar(64) not null,
+--     password    varchar(64) not null,
+--     fullname    varchar(64) not null,
+--     street      varchar(64) not null,
+--     city        varchar(64) not null,
+--     state       varchar(64) not null,
+--     zip         varchar(64) not null,
+--     phoneNumber varchar(64) not null
+-- );

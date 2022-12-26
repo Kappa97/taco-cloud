@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Taco Cloud</title>
+</head>
+<body>
+<h1>Login</h1>
+<img th:src="@{/images/TacoCloud.png}"/>
+<div th:if="${error}">
+  Unable to login. Check your username and password.
+</div>
+<!-- tag::thAction[] -->
+<form method="POST" th:action="@{/logout}" id="loginForm">
+  <input type="submit" value="Logout"/>
+</form>
+</body>
+</html>

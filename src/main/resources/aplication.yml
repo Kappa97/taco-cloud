@@ -1,0 +1,10 @@
+#server:
+#  port: 8443
+#  ssl:
+#  key-store: file:///path/to/mykeys.jks
+#  key-store-password: letmein
+#  key-password: letmein
+#
+#spring:
+#  main:
+#    allow-circular-references: true
