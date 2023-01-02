@@ -1,12 +1,13 @@
 package org.crystal.tacocloud.tacos;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
-import javax.persistence.*;
-import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
@@ -40,7 +41,7 @@ public class Order implements Serializable {
     @NotBlank(message="Zip code is required")
     private String zip;
 
-    @CreditCardNumber(message="Not a valid credit card number")
+    //@CreditCardNumber(message="Not a valid credit card number")
     private String ccNumber;
 
     @Pattern(regexp="^(0[1-9]|1[0-2])([\\/])([1-9][0-9])$", message="Must be formatted MM/YY")

@@ -1,5 +1,6 @@
 package org.crystal.tacocloud.tacos.web;
 
+import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.crystal.tacocloud.tacos.Order;
 import org.crystal.tacocloud.tacos.User;
@@ -13,8 +14,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
-
-import javax.validation.Valid;
 import java.security.Principal;
 
 @Slf4j
@@ -27,8 +26,9 @@ public class OrderController {
     private UserRepository userRepository;
 
     @Autowired
-    public OrderController(OrderRepository orderRepo) {
+    public OrderController(OrderRepository orderRepo, UserRepository userRepository) {
         this.orderRepo = orderRepo;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/current")
@@ -41,7 +41,9 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
-        User user = userRepository.findByUsername(
+        String principalValue = principal.getName();
+        System.out.println(principalValue);
+        User user = userRepository.findByEmail(
                 principal.getName());
         order.setUser(user);
         orderRepo.save(order);

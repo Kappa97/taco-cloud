@@ -8,7 +8,7 @@
 <body>
 <form method="POST" th:action="@{/orders}" th:object="${order}">
     <h1>Order your taco creations!</h1>
-    <img th:src="@{/images/TacoCloud.png}"/>
+    <img th:src="@{/images/taco.png}"/>
     <a th:href="@{/design}" id="another">Design another taco</a><br/>
     <div th:if="${#fields.hasErrors()}">
  <span class="validationError">
@@ -16,7 +16,7 @@
  </span>
     </div>
     <h3>Deliver my taco masterpieces to...</h3>
-    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
+<!--    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>-->
     <label for="name">Name: </label>
     <input type="text" th:field="*{name}"/>
     <br/>

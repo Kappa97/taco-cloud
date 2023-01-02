@@ -6,7 +6,13 @@
 </head>
 <body>
 <h1>Login</h1>
-<img th:src="@{/images/TacoCloud.png}"/>
+<!--<img th:src="@{/resources/static/images/taco.png}"/>-->
+<!--<img th:src="@{/static/images/taco.png}"/>-->
+<!--<img th:src="@{/main/resources/static/images/taco.png}"/>-->
+<img th:src="@{/images/taco.png}"/>
+<!--<img th:src="/images/taco.png"/>-->
+
+<!--<img alt="image"  src="<c:url value=resources/static/images/taco.jfifg"/>-->
 <div th:if="${error}">
     Unable to login. Check your username and password.
 </div>
@@ -19,6 +25,7 @@
     <input type="text" name="username" id="username"/><br/><label for="password">Password: </label>
     <input type="password" name="password" id="password"/><br/>
     <input type="submit" value="Login"/>
+<!--    <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />-->
 </form>
 </body>
 </html>

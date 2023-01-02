@@ -1,16 +1,18 @@
 package org.crystal.tacocloud.tacos;
 
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.*;
+
 
 
 @Data
 @RequiredArgsConstructor
 @Entity
+@Table(name = "ingredient")
 @NoArgsConstructor(access=AccessLevel.PROTECTED, force=true)
 public class Ingredient {
 

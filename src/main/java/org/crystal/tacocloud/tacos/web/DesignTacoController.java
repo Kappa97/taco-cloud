@@ -1,17 +1,16 @@
 package org.crystal.tacocloud.tacos.web;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 
+import jakarta.validation.Valid;
 import org.crystal.tacocloud.tacos.Ingredient;
 import org.crystal.tacocloud.tacos.Order;
 import org.crystal.tacocloud.tacos.Taco;
 import org.crystal.tacocloud.tacos.data.IngredientRepository;
 import org.crystal.tacocloud.tacos.data.TacoRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +18,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.validation.Valid;
+
 
 
 @Slf4j
@@ -28,8 +27,11 @@ import javax.validation.Valid;
 @SessionAttributes("order")
 public class DesignTacoController {
 
-    private final IngredientRepository ingredientRepo;
+    //@Autowired
+    private IngredientRepository ingredientRepo;
+    //@Autowired
     private TacoRepository designRepo;
+
 
     @Autowired
     public DesignTacoController(IngredientRepository ingredientRepo, TacoRepository designRepo) {
@@ -62,7 +64,7 @@ public class DesignTacoController {
     @GetMapping
     public String showDesignFormMyMethod(Model model) {
         List<Ingredient> ingredients = new ArrayList<>();
-        ingredientRepo.findAll().forEach(i -> ingredients.add(i));
+        ingredients.addAll(ingredientRepo.findAll());
         Ingredient.Type[] types = Ingredient.Type.values();
         for (Ingredient.Type type : types) {
             model.addAttribute(type.toString().toLowerCase(),

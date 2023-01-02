@@ -1,4 +1,4 @@
-package org.crystal.tacocloud.tacos.security.services;
+package org.crystal.tacocloud.tacos.services;
 
 import org.crystal.tacocloud.tacos.User;
 import org.crystal.tacocloud.tacos.dto.UserDto;

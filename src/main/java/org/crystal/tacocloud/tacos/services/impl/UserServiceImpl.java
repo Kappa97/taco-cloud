@@ -1,21 +1,22 @@
-package org.crystal.tacocloud.tacos.security.services.impl;
+package org.crystal.tacocloud.tacos.services.impl;
 
 import org.crystal.tacocloud.tacos.User;
 import org.crystal.tacocloud.tacos.dto.UserDto;
 import org.crystal.tacocloud.tacos.repository.UserRepository;
-import org.crystal.tacocloud.tacos.security.services.UserService;
+import org.crystal.tacocloud.tacos.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository,
-                           PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserRepository userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
     }
