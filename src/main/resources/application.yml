@@ -1,5 +1,5 @@
-#server:
-#  port: 8443
+server:
+  port: 9090
 #  ssl:
 #  key-store: file:///path/to/mykeys.jks
 #  key-store-password: letmein
