@@ -7,6 +7,8 @@ import org.crystal.tacocloud.tacos.User;
 import org.crystal.tacocloud.tacos.data.OrderRepository;
 import org.crystal.tacocloud.tacos.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -41,6 +43,7 @@ public class OrderController {
         if (errors.hasErrors()) {
             return "orderForm";
         }
+
         String principalValue = principal.getName();
         System.out.println(principalValue);
         User user = userRepository.findByEmail(
