@@ -1,4 +1,4 @@
-package org.crystal.tacocloud.tacos;
+package org.crystal.tacocloud.tacos.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
@@ -22,7 +22,7 @@ public class Taco {
 
     private Date createdAt;
 
-    @ManyToMany(targetEntity=Ingredient.class)
+    @ManyToMany(targetEntity= Ingredient.class)
     @Size(min=1, message="You must choose at least 1 ingredient")
     private List<Ingredient> ingredients;
 

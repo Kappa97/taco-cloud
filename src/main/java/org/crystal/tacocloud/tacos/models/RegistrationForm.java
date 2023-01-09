@@ -1,7 +1,7 @@
-package org.crystal.tacocloud.tacos.security;
+package org.crystal.tacocloud.tacos.models;
 
 
-//import org.crystal.tacocloud.tacos.User;
+//import org.crystal.tacocloud.tacos.models.User;
 //import org.springframework.boot.autoconfigure.security.SecurityProperties;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import lombok.Data;

@@ -1,6 +1,6 @@
 package org.crystal.tacocloud.tacos.services.impl;
 
-import org.crystal.tacocloud.tacos.User;
+import org.crystal.tacocloud.tacos.models.User;
 import org.crystal.tacocloud.tacos.dto.UserDto;
 import org.crystal.tacocloud.tacos.repository.UserRepository;
 import org.crystal.tacocloud.tacos.services.UserService;

@@ -1,11 +1,10 @@
-package org.crystal.tacocloud.tacos;
+package org.crystal.tacocloud.tacos.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
-import org.hibernate.validator.constraints.CreditCardNumber;
 
 
 import java.io.Serializable;
@@ -50,7 +49,7 @@ public class Order implements Serializable {
     @Digits(integer=3, fraction=0, message="Invalid CVV")
     private String ccCVV;
 
-    @ManyToMany(targetEntity=Taco.class)
+    @ManyToMany(targetEntity= Taco.class)
     private List<Taco> tacos = new ArrayList<Taco>();
 
     @ManyToOne

@@ -1,6 +1,6 @@
 package org.crystal.tacocloud.tacos.repository;
 
-import org.crystal.tacocloud.tacos.User;
+import org.crystal.tacocloud.tacos.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 

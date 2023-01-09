@@ -1,6 +1,6 @@
 package org.crystal.tacocloud.tacos.services;
 
-import org.crystal.tacocloud.tacos.User;
+import org.crystal.tacocloud.tacos.models.User;
 import org.crystal.tacocloud.tacos.dto.UserDto;
 
 import java.util.List;

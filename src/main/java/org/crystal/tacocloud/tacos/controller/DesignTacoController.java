@@ -1,15 +1,15 @@
-package org.crystal.tacocloud.tacos.web;
+package org.crystal.tacocloud.tacos.controller;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 
 import jakarta.validation.Valid;
-import org.crystal.tacocloud.tacos.Ingredient;
-import org.crystal.tacocloud.tacos.Order;
-import org.crystal.tacocloud.tacos.Taco;
-import org.crystal.tacocloud.tacos.data.IngredientRepository;
-import org.crystal.tacocloud.tacos.data.TacoRepository;
+import org.crystal.tacocloud.tacos.models.Ingredient;
+import org.crystal.tacocloud.tacos.models.Order;
+import org.crystal.tacocloud.tacos.models.Taco;
+import org.crystal.tacocloud.tacos.repository.IngredientRepository;
+import org.crystal.tacocloud.tacos.repository.TacoRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,6 @@
-package org.crystal.tacocloud.tacos.data;
+package org.crystal.tacocloud.tacos.repository;
 
-import org.crystal.tacocloud.tacos.Order;
-import org.springframework.data.jpa.repository.Query;
+import org.crystal.tacocloud.tacos.models.Order;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Date;

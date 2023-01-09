@@ -1,4 +1,4 @@
-package org.crystal.tacocloud.tacos;
+package org.crystal.tacocloud.tacos.models;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;

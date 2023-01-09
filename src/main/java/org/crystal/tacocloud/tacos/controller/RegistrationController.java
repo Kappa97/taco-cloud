@@ -1,9 +1,8 @@
-package org.crystal.tacocloud.tacos.security;
+package org.crystal.tacocloud.tacos.controller;
 
-import org.crystal.tacocloud.tacos.User;
+import org.crystal.tacocloud.tacos.models.User;
 import org.crystal.tacocloud.tacos.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;

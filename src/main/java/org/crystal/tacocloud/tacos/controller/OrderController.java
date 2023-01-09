@@ -1,14 +1,12 @@
-package org.crystal.tacocloud.tacos.web;
+package org.crystal.tacocloud.tacos.controller;
 
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
-import org.crystal.tacocloud.tacos.Order;
-import org.crystal.tacocloud.tacos.User;
-import org.crystal.tacocloud.tacos.data.OrderRepository;
+import org.crystal.tacocloud.tacos.models.Order;
+import org.crystal.tacocloud.tacos.models.User;
+import org.crystal.tacocloud.tacos.repository.OrderRepository;
 import org.crystal.tacocloud.tacos.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
