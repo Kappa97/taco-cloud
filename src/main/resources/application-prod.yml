@@ -1,0 +1,12 @@
+server:
+  port: 8444
+  ssl:
+    key-store: D:\Projects\SpringProjects\taco-cloud\mykeys.jks
+    key-store-password: 123123
+    key-password: 123123
+
+taco:
+  orders:
+    pageSize: 10
+
+

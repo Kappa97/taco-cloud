@@ -6,8 +6,13 @@ import org.crystal.tacocloud.tacos.models.Order;
 import org.crystal.tacocloud.tacos.models.User;
 import org.crystal.tacocloud.tacos.repository.OrderRepository;
 import org.crystal.tacocloud.tacos.repository.UserRepository;
+import org.crystal.tacocloud.tacos.web.OrderProps;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,11 +29,22 @@ public class OrderController {
 
     private OrderRepository orderRepo;
     private UserRepository userRepository;
+    private OrderProps props;
 
     @Autowired
-    public OrderController(OrderRepository orderRepo, UserRepository userRepository) {
+    public OrderController(OrderRepository orderRepo, UserRepository userRepository, OrderProps orderProps) {
         this.orderRepo = orderRepo;
         this.userRepository = userRepository;
+        this.props= orderProps;
+    }
+
+    @GetMapping
+    public String ordersForUser(
+            @AuthenticationPrincipal User user, Model model) {
+        Pageable pageable = PageRequest.of(0, props.getPageSize());
+        model.addAttribute("orders",
+                orderRepo.findByUserOrderByPlacedAtDesc(user, pageable));
+        return "orderList";
     }
 
     @GetMapping("/current")

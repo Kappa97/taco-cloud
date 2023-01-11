@@ -4,6 +4,7 @@ delete from Taco;
 delete from Taco_Order;
 delete from Ingredient;
 
+
 INSERT INTO "ingredient" ("id", "name", "type")
 VALUES ('FLTO', 'Flour Tortilla', 'WRAP');
 INSERT INTO "ingredient" ("id", "name", "type")
@@ -26,6 +27,7 @@ INSERT INTO "ingredient" ("id", "name", "type")
 values ('SLSA', 'Salsa', 'SAUCE');
 INSERT INTO "ingredient" ("id", "name", "type")
 values ('SRCR', 'Sour Cream', 'SAUCE');
+
 
 INSERT INTO "users"("id","city","email","first_name","last_name","password","phone","state","street","zip")
 VALUES(CAST(1 AS BIGINT), 'Galati', 'ionlefter21@gmail.com', 'Ion', 'Lefter', '$2a$10$EMD8TusqX95JwAHx3RHqceuiiU0KwRc/utgNytL4C89vwR.IloQr6',

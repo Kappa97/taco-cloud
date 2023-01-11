@@ -72,6 +72,7 @@ public class SecurityConfiguration {
                                         .requestMatchers("/login").permitAll()
                                         .requestMatchers("/index").authenticated()
                                         .requestMatchers("/design").authenticated()
+                                        .requestMatchers("/orders").authenticated()
                                         .requestMatchers("/orders/**").authenticated()
                                         //allow connect in console
                                         .and().headers().frameOptions().sameOrigin();
