@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -39,9 +40,9 @@ public class OrderController {
     }
 
     @GetMapping
-    public String ordersForUser(
-            @AuthenticationPrincipal User user, Model model) {
+    public String ordersForUser(@AuthenticationPrincipal UserDetails userDetails, Model model) {
         Pageable pageable = PageRequest.of(0, props.getPageSize());
+        User user = userRepository.findByEmail(userDetails.getUsername());
         model.addAttribute("orders",
                 orderRepo.findByUserOrderByPlacedAtDesc(user, pageable));
         return "orderList";
@@ -66,6 +67,6 @@ public class OrderController {
         orderRepo.save(order);
         sessionStatus.setComplete();
         log.info("Order submitted: " + order);
-        return "redirect:/";
+        return "redirect:/orders";
     }
 }

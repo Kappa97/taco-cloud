@@ -13,16 +13,20 @@
     <table class="table table-striped table-bordered table-hover">
         <thead class="table-dark">
         <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
+            <th>Order_ID</th>
+            <th>Customer</th>
+            <th>Delivery Address</th>
+            <th>City</th>
+            <th>Order time</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="order: ${orders}">
+            <td th:text="${order.id}"></td>
             <td th:text="${order.name}"></td>
-            <td th:text="${order.name}"></td>
-            <td th:text="${order.name}"></td>
+            <td th:text="${order.street}"></td>
+            <td th:text="${order.city}"></td>
+            <td th:text="${order.placedAt}"></td>
         </tr>
         </tbody>
     </table>
